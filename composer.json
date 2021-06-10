@@ -1,0 +1,32 @@
+{
+    "name": "hossapp/hossapp-laravel",
+    "type": "library",
+    "description": "Hossapp Collection/Data Ingestion Middleware for Laravel",
+    "keywords": ["Hossapp", "Log","Debugging","Logging","Laravel","API","Middleware"],
+    "homepage": "https://www.hoss.com/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "hello@hoss.com",
+            "email": "hello@hoss.com",
+            "homepage": "https://www.hoss.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "mashape/unirest-php": "~3.0.1",
+        "apimatic/jsonmapper": "~1.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0"
+    },
+        "autoload": {
+        "psr-4": {
+            "Hossapp\\": "src/Hossapp"
+        }
+    }
+}
