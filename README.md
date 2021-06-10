@@ -9,10 +9,7 @@
 [Source Code on GitHub](https://github.com/hossapp/hossapp-laravel)
 
 Middleware for PHP Laravel (> 5.1) to automatically log API Calls and
-sends to [Hossapp](https://www.hossapp.com) for API analytics and log analysis
-
-### Laravel 4.2
-  A [Hossapp SDK](https://github.com/Hossapp/hossapp-laravel4.2) is available for Laravel 4.2. Credit for creating this goes to [jonnypickett](https://github.com/jonnypickett/).
+sends to [Hoss](https://www.hoss.com) for API analytics and log analysis
 
 ## How to install
 
