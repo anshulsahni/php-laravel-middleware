@@ -13,8 +13,19 @@ sends to [Hoss](https://www.hoss.com) for API analytics and log analysis
 
 ## How to install
 
-Via Composer
+Via Composer + Git
 
+Include the following repository reference to your composer.json file
+```json
+"repositories": [
+    {
+        "url": "https://github.com/hossapp/php-laravel-middleware.git",
+        "type": "git"
+    }
+]
+```
+
+And then, install the hossapp laravel middleware
 ```bash
 $ composer require hossapp/hossapp-laravel
 ```
