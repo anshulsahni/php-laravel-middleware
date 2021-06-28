@@ -202,6 +202,10 @@ class HossappLaravel
            $identifySessionId = array($configInstance, 'identifySessionId');
            $getMetadata = array($configInstance, 'getMetadata');
            $skip = array($configInstance, 'skip');
+        } else {
+           $identifyUserId = config('hossapp.identifyUserId');
+           $identifyCompanyId = config('hossapp.identifyCompanyId');
+           $skip = config('hossapp.skip');
         }
 
         $debug = config('hossapp.debug');
@@ -354,21 +358,24 @@ class HossappLaravel
         $data = [
             'eventId' => Uuid::uuid4(),
             'request' => $requestData,
-            'response' => $responseData
+            'response' => $responseData,
+            'metadata' => [
+                'userData' => json_decode("{}")
+            ]
         ];
 
         $user = $request->user();
 
-        // if (is_callable($identifyUserId)) {
-        //     $data['user_id'] = $this->ensureString($identifyUserId($request, $response));
-        // } else if (!is_null($user)) {
-        //     $data['user_id'] = $this->ensureString($user['id']);
-        // }
+        if (is_callable($identifyUserId)) {
+            $data['metadata']['userData']->userId = $this->ensureString($identifyUserId($request, $response));
+        } else if (!is_null($user)) {
+            $data['metadata']['userData']->userId = $this->ensureString($user['id']);
+        }
 
         // // CompanyId
-        // if(is_callable($identifyCompanyId)) {
-        //     $data['company_id'] = $this->ensureString($identifyCompanyId($request, $response));
-        // }
+        if(is_callable($identifyCompanyId)) {
+            $data['metadata']['userData']->companyId = $this->ensureString($identifyCompanyId($request, $response));
+        }
 
         // if (is_callable($identifySessionId)) {
         //     $data['session_token'] = $this->ensureString($identifySessionId($request, $response));
